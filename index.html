@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería Elite</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <div id="menuOverlay" class="menu-overlay"></div>
+   <header>
+       <div class="container">
+           <h1>BARBERSHOP FRANCISCO</h1>
+           <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+           <nav class="nav-menu">
+               <ul>
+                   <li><a href="#section-citas" id="nav-citas" class="active">Citas</a></li>
+                   <li><a href="#section-tienda" id="nav-tienda">Tienda</a></li>
+                   <li><a href="#footer" id="nav-contacto">Contacto</a></li>
+               </ul>
+           </nav>
+           <div class="cart-icon" id="cart-icon">
+               🛒 <span id="cart-count">0</span>
+           </div>
+       </div>
+   </header>
+
+   <div id="mobileMenu" class="mobile-menu">
+       <ul>
+           <li><a href="#section-citas">Citas</a></li>
+           <li><a href="#section-tienda">Tienda</a></li>
+           <li><a href="#footer">Contacto</a></li>
+       </ul>
+   </div>
+    <!-- Sección de Citas -->
+    <section id="section-citas">
+        <div class="container">
+            <h2>Agenda tu Cita</h2>
+            <div class="citas-content">
+                <!-- Tipos de Cortes -->
+                <div class="cortes">
+                    <h3>Tipos de Cortes</h3>
+                    <ul>
+                        <li>Corte Clásico</li>
+                        <li>Corte Degradado</li>
+                        <li>Corte con Diseño</li>
+                        <li>Afeitado Tradicional</li>
+                        <li>Recorte de Barba</li>
+                    </ul>
+                </div>
+                <!-- Precios -->
+                <div class="precios">
+                    <h3>Precios</h3>
+                    <ul>
+                        <li>Corte Clásico: $15</li>
+                        <li>Corte Degradado: $20</li>
+                        <li>Corte con Diseño: $25</li>
+                        <li>Afeitado Tradicional: $10</li>
+                        <li>Recorte de Barba: $12</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Formulario de Citas -->
+            <form id="cita-form">
+                <h3>Completa el Formulario para Agendar</h3>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="text" id="correo" name="correo" placeholder="ejemplo@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="+56912345689">
+                </div>
+                <div class="form-group">
+                    <label for="servicio">Servicio</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="" disabled selected>Selecciona un servicio</option>
+                        <option value="Corte Clásico">Corte Clásico</option>
+                        <option value="Corte Degradado">Corte Degradado</option>
+                        <option value="Corte con Diseño">Corte con Diseño</option>
+                        <option value="Afeitado Tradicional">Afeitado Tradicional</option>
+                        <option value="Recorte de Barba">Recorte de Barba</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <input type="text" id="mensaje" name="mensaje" placeholder="Ingresa tu cotización">
+                </div>
+                <button type="submit" class="btn">Agendar Cita</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección de Tienda -->
+    <section id="section-tienda" class="hidden">
+        <div class="container">
+            <h2>Nuestra Tienda</h2>
+            <div class="productos">
+                <!-- Producto 1 -->
+                <div class="producto">
+                    <img src="Senior.png" alt="Máquina senior Profesional">
+                    <h3>Máquina senior Profesional</h3>
+                    <p>$90.000</p>
+                    <button class="btn add-to-cart" data-name="Máquina senior Profesional" data-price="90">Agregar al Carrito</button>
+                </div>
+                <!-- Producto 2 -->
+                <div class="producto">
+                    <img src="tijera.png" alt="Tijeras Profesionales">
+                    <h3>Tijeras Profesionales</h3>
+                    <p>$30.000</p>
+                    <button class="btn add-to-cart" data-name="Tijeras Profesionales" data-price="30">Agregar al Carrito</button>
+                </div>
+                <!-- Producto 3 -->
+                <div class="producto">
+                    <img src="KitdeCuidadodeBarba.png" alt="Kit de Cuidado de Barba">
+                    <h3>Kit de Cuidado de Barba</h3>
+                    <p>$25.000</p>
+                    <button class="btn add-to-cart" data-name="Kit de Cuidado de Barba" data-price="25">Agregar al Carrito</button>
+                </div>
+                <!-- Producto 4 -->
+                <div class="producto">
+                    <img src="WahlMaquinaSeniorMetal.png" alt="Wahl Maquina Senior Metal">
+                    <h3>Wahl Maquina Senior Metal</h3>
+                    <p>$85.000</p>
+                    <button class="btn add-to-cart" data-name="Wahl Maquina Senior Metal" data-price="85">Agregar al Carrito</button>
+                </div>
+                <!-- Producto 5 -->
+                <div class="producto">
+                    <img src="JRLProfesional.png" alt="Máquina JRL Profesional">
+                    <h3>Máquina JRL Profesional</h3>
+                    <p>$95.000</p>
+                    <button class="btn add-to-cart" data-name="Máquina JRL Profesional" data-price="95">Agregar al Carrito</button>
+                </div>
+                <!-- Producto 6 -->
+                <div class="producto">
+                    <img src="BaBylissPro.png" alt="Máquina BaByliss PRO">
+                    <h3>Máquina BaByliss PRO</h3>
+                    <p>$90.000</p>
+                    <button class="btn add-to-cart" data-name="Máquina BaByliss PRO" data-price="90">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal del Carrito -->
+    <div class="modal hidden" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-cart">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cart-items">
+                <!-- Items del carrito se generan dinámicamente -->
+            </div>
+            <div class="cart-total">
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+            </div>
+            <button class="btn" id="checkout-button">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div class="modal hidden" id="checkout-modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-checkout">&times;</span>
+            <h2>Detalles de Envío</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="text" id="correo" name="correo" placeholder="ejemplo@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" placeholder="Tu direccion">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="+56912345678" required>
+                </div>
+                <div class="form-group">
+                    <label for="total">Total</label>
+                    <input type="text" id="total" name="total" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="Mensaje">Mensaje</label>
+                    <input type="text" id="mensaje" name="mensaje" placeholder="Ingresa tu cotización">
+                </div>
+                <div class="form-group">
+                    <label for="Productos">Productos</label>
+                    <input type="hidden" id="productos" name="productos">
+                </div>
+                <button type="submit" class="btn">Confirmar Compra</button>
+            </form>
+        </div>
+    </div>
+    <!-- Pie de página -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>BARBERSHOP FRANCISCO</p>
+                <ul>
+                    <li><a href="#section-citas">Citas</a></li>
+                    <li><a href="#section-tienda">Tienda</a></li>
+                    <li><a href="#footer">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-center">
+            <p>Contáctanos</p>
+            <p><a href="tel:+56944848472">+569 4484 8472</a></p>
+            <p><a href="mailto:hailyfrancisco0231@gmail.com">hailyfrancisco0231@gmail.com</a></p>
+            <p>Todos los derechos reservados, BARBERSHOP FRANCISCO</p>
+        </div>
+        <div class="footer-right">
+            <img src="logo.png" alt="Logo de Barbería Elite">
+        </div>
+    </div>
+</footer>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+</body>
+</html>
